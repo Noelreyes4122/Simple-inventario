@@ -2,13 +2,33 @@ import java.util.Scanner;
 public class SimpleInventario {
     public static void agregarArticulo(String s) {
         System.out.println("Agregar un articulo:  ");
+        if(s.length()>4){
+            System.out.println("Articulo agregado exitosamente!");
+        } else{
+            System.out.println("No se permite este Articulo");
+        }
+
+
+
+
 
     }
 
     public static void removerArticulo(int id){
+        if (id>0){
+            System.out.println("Articulo Removido");
+        }
     }
-    public static double obtenerPrecioArticulo(int id){
-        return 0.00;
+    public static String obtenerPrecioArticulo(String articulo,double precio){
+        double random=(Math.random()* 5000) + 100;
+        if (articulo.startsWith("mar")&&precio>=0.00){
+            return "Articulo "+articulo +" tiene un valor de RD$  " + random;
+        } else if (articulo.startsWith("tab")||precio>=12000.00){
+            return "Articulo "+articulo+" tiene un valor de que sobrepasa 12,000.00."+" El monto es de RD$ "+ random;
+        }else{
+            return "Ninguno de los escenario pudo aplicar";
+        }
+
     }
     public static void imprimiendoinventario(){
         Scanner scanner = new Scanner(System.in);
