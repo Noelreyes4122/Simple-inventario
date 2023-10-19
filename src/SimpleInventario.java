@@ -14,21 +14,18 @@ public class SimpleInventario {
 
     }
 
+
     public static void removerArticulo(int id){
         if (id>0){
             System.out.println("Articulo Removido");
         }
     }
-    public static String obtenerPrecioArticulo(String articulo,double precio){
-        double random=(Math.random()* 5000) + 100;
-        if (articulo.startsWith("mar")&&precio>=0.00){
-            return "Articulo "+articulo +" tiene un valor de RD$  " + random;
-        } else if (articulo.startsWith("tab")||precio>=12000.00){
-            return "Articulo "+articulo+" tiene un valor de que sobrepasa 12,000.00."+" El monto es de RD$ "+ random;
-        }else{
-            return "Ninguno de los escenario pudo aplicar";
+    public static double obtenerPrecioArticulo() {
+        double precio = (Math.random() * 5000) + 100;
+        if (precio > 0) {
+            return precio;
         }
-
+        return -1;
     }
     public static void imprimiendoinventario(){
         Scanner scanner = new Scanner(System.in);
@@ -36,25 +33,30 @@ public class SimpleInventario {
         String usuario = scanner.next();
         System.out.println("Bienvenid@ "+ usuario);
 
-        String articuloExistente = obtenerNombredelArticulo();
+        String articuloExistente = obtenerPrecioArticulo();
         System.out.println("Articulo existente: " +articuloExistente);
 
 
     }
-    public static void main(String[] args) {
-        imprimiendoinventario();
-    }
 
-    public static String obtenerNombredelArticulo(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese el nombre del articulo: ");
-        String nombrearticulo;
-        nombrearticulo= scanner.next();
-        System.out.println("Usted ha ingresado el articulo: "+ nombrearticulo);
-        return nombrearticulo;
+    public static void modificarArticulo() {
+        String nombre =obtenerNombredelArticulo();
+        double precio = obtenerPrecioArticulo();
+
+        }
+        public static String obtenerNombredelArticulo () {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Ingrese el nombre del articulo: ");
+            String nombrearticulo;
+            nombrearticulo = scanner.next();
+            System.out.println("Usted ha ingresado el articulo: " + nombrearticulo);
+            return nombrearticulo;
 
 
+        }
 
-    }
+
 
 }
+
+
