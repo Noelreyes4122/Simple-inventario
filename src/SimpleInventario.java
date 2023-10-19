@@ -43,6 +43,23 @@ public class SimpleInventario {
         String nombre =obtenerNombredelArticulo();
         double precio = obtenerPrecioArticulo();
 
+        if(nombre.toLowerCase().startsWith("a") || nombre.toLowerCase().startsWith("d")){
+            if(precio >= 150 && precio <= 250){
+                precio += precio * 0.02;
+                System.out.println("El nombre del articulo es " + nombre + " y el precio actualizado es " + precio);
+            } else if(precio > 250 && precio <= 500){
+                precio += precio * 0.08;
+                System.out.println("El nombre del articulo es " + nombre + " y el precio actualizado es " + precio);
+            } else {
+                precio += precio * 0.12;
+                System.out.println("El nombre del articulo es " + nombre + " y el precio actualizado es " + precio);
+            }
+        } else if(nombre.toLowerCase().startsWith("co") || nombre.toLowerCase().startsWith("m")){
+            precio -= precio * 0.20;
+            System.out.println("El nombre del articulo es " + nombre + " y el precio actualizado es " + precio);
+        }
+    }
+
         }
         public static String obtenerNombredelArticulo () {
             Scanner scanner = new Scanner(System.in);
